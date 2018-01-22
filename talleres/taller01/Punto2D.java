@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller1;
+package taller;
 
 /**
  *
@@ -20,15 +20,19 @@ public class Punto2D {
         this.y=y;
     }
     
-     public float radio(){
+     public float Radio(){
     return (float) Math.sqrt((x*x)+(y*y));
     
     }
      
-     float angulo(){
+     float Angulo(){
         return (float) Math.atan(y / x);
        // return (float) Math.atan2(x,y);
     }
+     
+     float DistanciaEuclidiana(){
+         return (float) Math.hypot(x-x, y-y);
+     }
 
 }
   
