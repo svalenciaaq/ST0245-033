@@ -19,7 +19,7 @@ public class Contador {
         contador=0;
         incrementos=0;
     }
-  static  Contador papu= new Contador("Infinito");
+  static  Contador contar= new Contador("Infinito");
     
     void Incremetar(){
         contador+=1;
