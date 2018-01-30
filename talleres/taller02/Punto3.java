@@ -7,7 +7,7 @@ package poew;
 
 /**
  *
- * @author usuario
+ * @author Santiago x2
  */
 public class Punto3 {
     
