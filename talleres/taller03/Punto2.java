@@ -16,17 +16,17 @@ public class Punto2 {
      */
     public static void main(String[] args) {
         
-      Punto3(" ", "abc");
+      Punto2(" ", "abc");
 
       
     }
     
-     public static void Punto3(String papa, String hijo){
+     public static void Punto2(String papa, String hijo){
         if(hijo.length()==0){
             System.out.println(papa);
         }else{
-            Punto3(papa+hijo.charAt(0), hijo.substring(1));
-            Punto3(papa,hijo.substring(1));
+            Punto2(papa+hijo.charAt(0), hijo.substring(1));
+            Punto2(papa,hijo.substring(1));
         }
      
     }
