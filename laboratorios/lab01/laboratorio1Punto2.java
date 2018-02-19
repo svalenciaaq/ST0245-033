@@ -40,6 +40,19 @@ public class laboratorio1Punto2 {
             }
     }
     
+    
+    //Fibonacci
+    public static int fibonacci(int n){
+        
+        
+        if(n < = 1){
+            return n;
+        }
+        else{
+            return fibonacci(n-2)+ fibonacci(n-1);
+        }
+    }
+    
     //BunnyEars
     public static int bunnyEars(int bunnies){
         if(bunnies == 0){
