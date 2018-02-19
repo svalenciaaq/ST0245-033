@@ -62,11 +62,16 @@ public class laboratorio1Punto1 {
         return fibonacci(n-2) + (n-1);
     }
     
-    
-    
-    
-    
-    
-    
+    // Método para encontrar el elemento más grande el arreglo
+    // Colaborador en este punto Cristian Ceballos
+    public static int digitoMayor(int [] arreglo, int n, int x){
+        
+        if (n == 0){
+            return x;
+        }else{
+            if (arreglo[n] > x){
+                x = arreglo [n]; // Esto por si el arreglo en la posición n es mayor a x. X ahora pasa a ser e valor más grande.
+        }
+            return digitoMayor(arreglo, n -1, x);
     
 }
