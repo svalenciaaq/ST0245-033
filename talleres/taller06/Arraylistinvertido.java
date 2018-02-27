@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author usuario
+ * @author Santiago valencia
  */
 public class Arraylistinvertido {
 
