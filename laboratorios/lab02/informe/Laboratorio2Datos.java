@@ -144,34 +144,6 @@ public class Laboratorio2Datos {
         for(int i = 0; i < num; i++, rightEnd--)
             a[rightEnd] = tmp[rightEnd];
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //FIN MÉTODOS SIN RECURSIÓN
     
     
