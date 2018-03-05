@@ -9,7 +9,7 @@ package laboratorio2datos;
  *
  * @author 
  */
-public class punto2Array2 {
+public class Array2 {
     
     public static void main(String [] args){
         
