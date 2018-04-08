@@ -30,7 +30,7 @@ public class punto2 {
         
         //Ciclo para recorrer caracter por caracter
         for (int i = 0; i < a_modificar.length(); i++) {
-            if(a_modificar.charAt(i)== ']'){ // Si el caracter en la posicion i es '['
+            if(a_modificar.charAt(i)== '['){ // Si el caracter en la posicion i es '['
                 i ++;
             }
             
