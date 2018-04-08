@@ -15,7 +15,7 @@ public class punto2 {
    
     public static void main(String[] args){
         
-        //Lista enlazada tipo <Porque deber recorrer caracter x caracter>
+        //Lista enlazada tipo <caracter>Porque deber recorrer caracter x caracter
         LinkedList<Character> lista = new LinkedList <Character> ();
         String a_modificar= "asd[fgh[jkl";
         
