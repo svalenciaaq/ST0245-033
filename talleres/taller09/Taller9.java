@@ -20,16 +20,19 @@ public class Taller9 {
       
     }
     
+    //
     public static void agregar(HashMap empresas, String key, String value){
         empresas.put( key, value);
     }
     
+    //
     public static void buscar(HashMap empresas, String key){
         empresas.get(key);
     }
     
+    //
     public static boolean contienekey(HashMap empresas, String value){
-        return true;
+        return empresas.containsValue(value);
     }
     
 }
