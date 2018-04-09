@@ -35,31 +35,7 @@ public class LinkedlistMauricio {
         return size;
     }
 
-    public void insert(int data, int index) {
-        if (index < 0 || index > size) {
-            return;
-        } else {
-            if (size() == 0) {
-                first = new Nodo(data);
-            } else if (index == 0) {
-                Nodo papu = first;
-                Nodo mamu = new Nodo(data);
-                first = mamu;
-                mamu.next = papu;
-            } else {
-                Nodo papu = first;
-                Nodo nex = first;
-                for (int i = 0; i < index; ++i) {
-                    papu = nex;
-                    nex = nex.next;
-                }
-                Nodo n = new Nodo(data);
-                papu.next = n;
-                n.next = nex;
-            }
-            size++;
-        }
-    }
+    
 
     public void remove(int data) {
         if (size() == 0) {
@@ -69,17 +45,17 @@ public class LinkedlistMauricio {
             size--;
         } else {
             Nodo antes;
-            Nodo temporal;
+            Nodo temp;
             antes = first;
-            temporal = first.next;
-            while (temporal != null && temporal.dato != data) {
+            temp = first.next;
+            while (temp != null && temp.dato != data) {
                 antes = antes.next;
-                temporal = temporal.next;
+                temp = temp.next;
             }
 
-            if (temporal != null) {
-                antes.next = temporal.next;
-                if (temporal == fin) {
+            if (temp != null) {
+                antes.next = temp.next;
+                if (temp == fin) {
                     fin = antes;
                 }
             }
@@ -122,5 +98,31 @@ public class LinkedlistMauricio {
         }
 
         return temp.dato;
+    }
+      
+      public void insert(int data, int index) {
+        if (index < 0 || index > size) {
+            return;
+        } else {
+            if (size() == 0) {
+                first = new Nodo(data);
+            } else if (index == 0) {
+                Nodo papu = first;
+                Nodo mamu = new Nodo(data);
+                first = mamu;
+                mamu.next = papu;
+            } else {
+                Nodo papu = first;
+                Nodo nex = first;
+                for (int i = 0; i < index; ++i) {
+                    papu = nex;
+                    nex = nex.next;
+                }
+                Nodo n = new Nodo(data);
+                papu.next = n;
+                n.next = nex;
+            }
+            size++;
+        }
     }
 }
