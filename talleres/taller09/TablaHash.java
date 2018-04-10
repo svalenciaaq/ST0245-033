@@ -10,6 +10,7 @@ public class TablaHash {
                   else
                    return tabla[key].getX();
       }
+    //tomado de http://www.algolist.net/Data_structures/Hash_table/Simple_example
       public void put(int key, String X) {
           int hash = (key % Tam);
           while (tabla[hash] != null && tabla[hash].getKey() != key)
