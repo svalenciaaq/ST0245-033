@@ -5,42 +5,49 @@
  */
 package taller9;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
 
 /**
  *
- * @author 
+ * @author usuario
  */
 public class Taller9 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
       
-        HashMap<String,String> tabla = new HashMap<String,String>();
-        tabla.put("Google","Estados Unidos");
-        tabla.put("La Locura","Colombia");
-        tabla.put("Nokia","Finlandia");
-        tabla.put("Sony","Japón");
-        
-       
-        
-    }
-    
-    public static void agregar(HashMap <String, String>empresas, String key, String value){
+    public static void agregar(Hashtable <String, String>empresas, String key, String value){
         empresas.put( key, value);
     }
     
-    public static void buscar(HashMap <String, String>empresas, String key){
-        empresas.get(key);
+    public static void buscar(Hashtable <String, String>empresas, String key){
+     Enumeration e = empresas.keys();
+Object clave;
+Object valor;
+while( e.hasMoreElements() ){
+  clave = e.nextElement();
+  if(clave==key){
+  valor = empresas.get( clave );
+ 
+  System.out.println( "Clave : " + clave + " - Valor : " + valor );
+  }
+}
     }
     
     public static boolean contienekey(HashMap empresas, String value){
         return empresas.containsValue(value);
     }
+    public static void main(String[] args) {
+       Hashtable<String,String> tabla = new Hashtable<String,String>();
+       agregar(tabla,"Google","Estado unidos");
+       agregar(tabla,"La locura","Colombia");
+       agregar(tabla,"Nokia","Finlandia");
+       agregar(tabla,"Sony","Japon");
+       buscar(tabla,"Google");
+       
+     
+       
     
-    
+    }
     
 }
