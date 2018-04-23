@@ -11,8 +11,6 @@ package arbogenealogico;
  */
 public class ArboGenealogico {
 
-    int longi;
-    int h;
 
     class Node {
 
@@ -45,6 +43,8 @@ public class ArboGenealogico {
 
     }
     Node root;
+    int longi;
+    int h;
 
     public ArboGenealogico(String root) {
         this.root = new Node(root);
