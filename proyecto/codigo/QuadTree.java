@@ -227,10 +227,10 @@ public class QuadTree {
 		if (tree.Bees.size() == 0) {
 			
 		}
-		sacarAbejas(tree.northWest);
-		sacarAbejas(tree.northEast);
-		sacarAbejas(tree.southWest);
-		sacarAbejas(tree.southEast);
+		sacarEjes(tree.northWest);
+		sacarEjes(tree.northEast);
+		sacarEjes(tree.southWest);
+		sacarEjes(tree.southEast);
 
 	}
 	
