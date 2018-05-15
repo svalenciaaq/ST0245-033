@@ -6,10 +6,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-/*
- *  			N
- *  		W		E
- *  			S
+/*author Original sacado de: AbhijeetMajumdar(2015) QuadTree
+ * (Version1),https://gist.github.com/AbhijeetMajumdar/c7b4f10df1b87f974ef4
+ *Modificado por: santiago valencia arango
  */
 
 
