@@ -28,7 +28,7 @@ public class Mostrar extends JFrame{
 
 	AgregarAbejas bee=new AgregarAbejas();
 
-    double radio=0.0001;
+  
     
     public Mostrar() {
     	
