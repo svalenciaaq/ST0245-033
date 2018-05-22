@@ -1,9 +1,10 @@
 	
+
 /**
- * @author santiago valencia arango
  * Clase encargada de almacenar los datos de las abejas, los cuales son la posicion en x,posicion en y y el radio de cada abeja, ademas de una variable val,
  * donde se le es asignado un valor entero a cada abeja para asia identificar con que otras abejas van a colisionar,
- *
+ * @author santiago valencia arango
+ * 
  */
 public class Abeja {
 	int x;

@@ -20,9 +20,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Clase encargada de generar un jframe y dibujar las abejas en este
  * @author santiago valencia arango
- * Calse encargada de generar un jframe y dibujar las abejas en este
+ * 
  */
 public class Mostrar extends JFrame{
 	

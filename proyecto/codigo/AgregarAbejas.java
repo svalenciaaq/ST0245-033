@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * @author santiago valencia arango Clase encargada de leer el fichero y
- *         introducirla en el quad tree;
+ * Clase encargada de leer el fichero y introducirla en el quad tree
+ * @author santiago valencia arango 
+ * 
+ * 
  */
 public class AgregarAbejas {
 	static ArrayList<Integer> Ejex = new ArrayList<Integer>();

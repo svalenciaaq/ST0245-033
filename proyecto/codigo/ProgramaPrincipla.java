@@ -8,9 +8,9 @@ import java.io.IOException;
 
 
 /**
- *
+ *Clase principal de proyecto encargada de llamar a las subclases que inicializan todo el proyecto
  * @author santiago valencia arango
- * Clase principal de proyecto encargada de llamar a las subclases que inicializan todo el proyecto
+ * 
  */
 
 public class ProgramaPrincipla {
