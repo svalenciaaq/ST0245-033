@@ -32,7 +32,7 @@ public class Mostrar extends JFrame{
     
     
     /**
-     * 
+     * Constructor de la clase, donde se crea el jframe
      */
     public Mostrar() {
     	
@@ -48,6 +48,10 @@ public class Mostrar extends JFrame{
     
   
     
+    /* (non-Javadoc)
+     * @see java.awt.Window#paint(java.awt.Graphics)
+     * Metodo de la clase java2d encatgado de dibujar las abejas en el plano cartesiano.
+     */
     public void paint(Graphics g) {
    
     	super.paint(g);

@@ -9,8 +9,10 @@ import java.io.IOException;
 
 /**
  *
- * @author xltiagoxl
+ * @author santiago valencia arango
+ * Clase principal de proyecto encargada de llamar a las subclases que inicializan todo el proyecto
  */
+
 public class ProgramaPrincipla {
     public static void main(String[]args) throws IOException{
  
@@ -18,14 +20,7 @@ public class ProgramaPrincipla {
       new AgregarAbejas();
       new Mostrar();
     	
-    	
     
-    	
-    	
-
-    	
-        
-        
     	
     	 
         

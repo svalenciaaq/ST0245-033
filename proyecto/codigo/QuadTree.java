@@ -1,40 +1,63 @@
 
 
-import java.text.MessageFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 
-/*
- *  			N
- *  		W		E
- *  			S
+
+
+
+
+/**
+ * author Original sacado de: AbhijeetMajumdar(2015) QuadTree
+ * (Version1),https://gist.github.com/AbhijeetMajumdar/c7b4f10df1b87f974ef4
+ * Modificado por: santiago valencia arango
+ * 
+ * 
+ * 
+ *Esta clase Es la que determina el tamaño de los cuadrados del quadtree
  */
 
-
-/* Using two points of Rectangular (Top,Left) & (Bottom , Right)*/
 class Boundry {
+	/**
+	 * @return retorna la x minima del cuadrado d
+	 */
 	public int getxMin() {
 		return xMin;
 	}
 
+	/**
+	 * @return retorna la y maxima del cuadrado 
+	 */
 	public int getyMin() {
 		return yMin;
 	}
 
+	/**
+	 * @return retorna la x maxima del cuadrado
+	 */
 	public int getxMax() {
 		return xMax;
 	}
 
+	/**
+	 * @return retorna la y maxima del cuadrado
+	 */
 	public int getyMax() {
 		return yMax;
 	}
 
+	/**
+	 * @param xMin x minima del cuadrado
+	 * @param yMin y minima del cuadrado
+	 * @param xMax x maxima del cuadrado
+	 * @param yMax y maxima del cuadrado
+	 */
 	public Boundry(int xMin, int yMin, int xMax, int yMax) {
 		super();
 		/*
-		 *  Storing two diagonal points 
+		 *  Esto almacena dos puntos diagonales del cuadrado.
 		 */
 		this.xMin = xMin;
 		this.yMin = yMin;
@@ -42,6 +65,11 @@ class Boundry {
 		this.yMax = yMax;
 	}
 
+	/**
+	 * @param x Posicion x de una abeja.
+	 * @param y Posicion y de una abeja.
+	 * @return Retorna true o false si una abeja dentro del rango de un cuadrante del quadtree
+	 */
 	public boolean inRange(int x, int y) {
 		return (x >= this.getxMin() && x <= this.getxMax()
 				&& y >= this.getyMin() && y <= this.getyMax());
@@ -51,12 +79,14 @@ class Boundry {
 
 }
 
+/**
+ * 
+ *Clase que almacena todas las variables y declaraciones para poder desarollar un quadtree
+ */
 public class QuadTree {
 	
-    static ArrayList<Abeja> beeAux=new ArrayList<Abeja>();
-    static ArrayList<Integer>Ejex=new ArrayList<Integer>();
-    static ArrayList<Integer>Ejey=new ArrayList<Integer>();
-	final int MAX_CAPACITY =4;
+    static ArrayList<Abeja> beeAux=new ArrayList<Abeja>(); //ArrayList auxiliar que guarda las abejas para ser comparadas con el resto de abejas
+	final int MAX_Bees =4;//variable que define el limite de abejas por cuadrante
 	int level = 0;
 	static int col=0;
 	List<Abeja> Bees;
@@ -66,19 +96,23 @@ public class QuadTree {
 	QuadTree southEast = null;
 	Boundry boundry;
 	Boolean split;
+	/**
+	 * @param level Nivel en el que se encuentra el quadtree
+	 * @param boundry Cuadrado que representa el cuadrante
+	 */
 	QuadTree(int level, Boundry boundry) {
 		this.level = level;
 		Bees = new ArrayList<Abeja>();
 		this.boundry = boundry;
 	}
 
-	/* Traveling the Graph using Depth First Search*/
-	public QuadTree() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	
 
+	/**
+	 * Metodo encargado de dividir el quadtree cuando el cuadrante alcanzo el nivel maximo de abejas
+	 */
 	void split() {
 		int xOffset = this.boundry.getxMin()
 				+ (this.boundry.getxMax() - this.boundry.getxMin()) / 2;
@@ -100,6 +134,13 @@ public class QuadTree {
 
 	}
 
+	/**
+	 * @param x Posicion x de la abeja
+	 * @param y Posicion y de la abajea
+	 * @param val Identificador asignado a la abeja
+	 * 
+	 * Metodo encargado de introducir las abejas al quadtree
+	 */
 	void insert(int x, int y, int val) {
 		
 		
@@ -108,7 +149,7 @@ public class QuadTree {
 		}
 
 		Abeja bee = new Abeja(x, y, val);
-		if (Bees.size() < MAX_CAPACITY) {
+		if (Bees.size() < MAX_Bees) {
 			Bees.add(bee);
 			return;
 		}
@@ -133,6 +174,14 @@ public class QuadTree {
 	
 	
 	
+	/**
+	 * @param first Primera abeja a comparar
+	 * @param second SEgunda abeja a comparar
+	 * @return True si las dos abejas estan colisionando
+	 * 
+	 * Metodo encargado de recibit dos abejas, Recuperar las posiciones x,y de las dos abejas, para luego sacar las distancia entre las dos abejas atravez de
+	 * el teorema de pitagoras, Luego obtener sus radios para comparar si el radio es mayor a la distancia entra las dos abejas, si asi es, retorna true, lo que significa que las dos abejas colisionan
+	 */
 	public static  boolean colision(Abeja first, Abeja second) {
 		int x1=first.getX();
 		int y1=first.getY();
@@ -160,12 +209,12 @@ public class QuadTree {
 		
 	}
 	
+	/**
+	 * Metodo encargado de recorrer el Arraylist donde estan guardadas las abejas, y ir comparando cada una de las abejas con el resto de las abejas, y llamando la funcion colision que retorna true, o false
+	 * Para asi detectar la colision entre dos abejas.
+	 */
 	public static void Chocan() {
-		long totalSum = 0;
-		  long startTime = System.currentTimeMillis();
-		
-		   int dataSize=1024*1024;
-		 
+			 
 	Abeja aux = null;
 	Abeja aux2 = null;
 	
@@ -184,20 +233,12 @@ public class QuadTree {
 		}
 		}
 	}
-		 
-		 
-	   
-   	 
-		
-		
-		
-	
-	
-	
+		 	
+	/**
+	 * @param tree Arbol que recibe para recorrrerlo
+	 * Metodo encargado de recorrer el quadtree nodo por nodo para asi recuperar las abejas y guardarlas en un Arraylist auxiliar para luego ser comparadas
+	 */
 	static void comprobarColisiones(QuadTree tree) {
-		long totalSum = 0;
-		  long startTime = System.currentTimeMillis();
-		   int dataSize=1024*1024;
 		if (tree == null)
 			return ;
 
