@@ -21,15 +21,19 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author xltiagoxl
+ * @author santiago valencia arango
+ * Calse encargada de generar un jframe y dibujar las abejas en este
  */
 public class Mostrar extends JFrame{
 	
 
 	AgregarAbejas bee=new AgregarAbejas();
 
-  
     
+    
+    /**
+     * 
+     */
     public Mostrar() {
     	
     	super("Dibujar");
@@ -38,7 +42,7 @@ public class Mostrar extends JFrame{
     	setSize(1000,1000);
     	setVisible(true);
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
-    	  JOptionPane.showMessageDialog(null,"Se ha encontrado "+QuadTree.col +" Colisiones");
+    	  
     	
     }
     
@@ -52,7 +56,7 @@ public class Mostrar extends JFrame{
     	circulo.setStroke(new BasicStroke(10.f));
     	circulo.setPaint(Color.BLUE);
     	for(int i=0;i<bee.Ejex.size();i++) {
-    		circulo.fillOval(bee.Ejex.get(i),bee.Ejey.get(i), 1, 1);
+    		circulo.fillOval(bee.Ejex.get(i),bee.Ejey.get(i), 10, 10);
     	}
     	
     }

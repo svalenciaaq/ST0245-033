@@ -6,9 +6,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-/*author Original sacado de: AbhijeetMajumdar(2015) QuadTree
- * (Version1),https://gist.github.com/AbhijeetMajumdar/c7b4f10df1b87f974ef4
- *Modificado por: santiago valencia arango
+/*
+ *  			N
+ *  		W		E
+ *  			S
  */
 
 
@@ -76,26 +77,7 @@ public class QuadTree {
 		// TODO Auto-generated constructor stub
 	}
 
-	static void dfs(QuadTree tree) {
-		if (tree == null)
-			return;
-
-		System.out.printf("\nLevel = %d [X1=%d Y1=%d] \t[X2=%d Y2=%d] ",
-				tree.level, tree.boundry.getxMin(), tree.boundry.getyMin(),
-				tree.boundry.getxMax(), tree.boundry.getyMax());
-
-		for (Abeja bee : tree.Bees) {
-			System.out.printf(" \n\t  x=%d y=%d", bee.x, bee.y);
-		}
-		if (tree.Bees.size() == 0) {
-			System.out.printf(" \n\t  Leaf Node.");
-		}
-		dfs(tree.northWest);
-		dfs(tree.northEast);
-		dfs(tree.southWest);
-		dfs(tree.southEast);
-
-	}
+	
 
 	void split() {
 		int xOffset = this.boundry.getxMin()
@@ -119,6 +101,8 @@ public class QuadTree {
 	}
 
 	void insert(int x, int y, int val) {
+		
+		
 		if (!this.boundry.inRange(x, y)) {
 			return;
 		}
@@ -142,11 +126,14 @@ public class QuadTree {
 			this.southWest.insert(x, y,val);
 		else if (this.southEast.boundry.inRange(x, y))
 			this.southEast.insert(x, y,val);
-		//else
-		//System.out.printf("ERROR : Unhandled partition %d %d", x, y);
+				
+	
 	}
 	
-	public static int Calculardis(Abeja first,Abeja second) {
+	
+	
+	
+	public static  boolean colision(Abeja first, Abeja second) {
 		int x1=first.getX();
 		int y1=first.getY();
 		int x2=second.getX();
@@ -157,11 +144,6 @@ public class QuadTree {
 		
 		int distancia=(int)Math.sqrt(cat1*cat1 + cat2*cat2);
 		
-		return distancia;
-	}
-	
-	
-	public static  boolean colision(Abeja first, Abeja second,int distancia) {
 		double rad1=first.getRadio();
 		double rad2=second.getRadio();
 		boolean yes=false;
@@ -169,36 +151,55 @@ public class QuadTree {
 		
 		if(radmax> distancia) {
 			yes=true;
+			
 		}
 		
 		return yes;
 		
+		
+		
 	}
 	
 	public static void Chocan() {
+		long totalSum = 0;
+		  long startTime = System.currentTimeMillis();
+		
+		   int dataSize=1024*1024;
+		 
 	Abeja aux = null;
 	Abeja aux2 = null;
 	
-		for(int i=0;i<beeAux.size()-1;i=i+2) {
-			
+		for(int i=0;i<beeAux.size();i++) {
+			for(int p=i+1;p<beeAux.size();p++) {
 			aux=beeAux.get(i);
-			aux2=beeAux.get(i+1);
+			aux2=beeAux.get(p);
 			
 		
-			if(colision(aux,aux2,Calculardis(aux,aux2))) {
+			if(colision(aux,aux2)) {
 				System.out.println("Abejas " +aux.val+" "+aux2.val+" Colisionan");
 				col++;				
 			}else {
 				System.out.println("Abejas "+aux.val+" "+aux2.val+" No colisionan");
 			}
 		}
-		
+		}
 	}
+		 
+		 
+	   
+   	 
+		
+		
+		
 	
 	
-	static void sacarAbejas(QuadTree tree) {
+	
+	static void comprobarColisiones(QuadTree tree) {
+		long totalSum = 0;
+		  long startTime = System.currentTimeMillis();
+		   int dataSize=1024*1024;
 		if (tree == null)
-			return;
+			return ;
 
 
 		for (Abeja bee : tree.Bees) {
@@ -207,35 +208,17 @@ public class QuadTree {
 		if (tree.Bees.size() == 0) {
 			
 		}
-		sacarAbejas(tree.northWest);
-		sacarAbejas(tree.northEast);
-		sacarAbejas(tree.southWest);
-		sacarAbejas(tree.southEast);
-
+		
+		comprobarColisiones(tree.northWest);
+		comprobarColisiones(tree.northEast);
+		comprobarColisiones(tree.southWest);
+		comprobarColisiones(tree.southEast);
+		
+		
+		
+		
 	}
 	
-	
-	static void sacarEjes(QuadTree tree) {
-		if (tree == null)
-			return;
-
-
-		for (Abeja bee : tree.Bees) {
-			Ejex.add(bee.getX());
-			Ejey.add(bee.getY());
-		}
-		if (tree.Bees.size() == 0) {
-			
-		}
-		sacarEjes(tree.northWest);
-		sacarEjes(tree.northEast);
-		sacarEjes(tree.southWest);
-		sacarEjes(tree.southEast);
-
-	}
-	
-	
-
 	
 	
 	
